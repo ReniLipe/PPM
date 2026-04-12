@@ -1,0 +1,235 @@
+/* =========================================================
+   1. RESET E VARIABILI (Punto Zero)
+   ========================================================= */
+* {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+:root {
+    --us-black: #000000;
+    --us-blue-main: #003a70;
+    --us-blue-dark: #002e5a;
+    --viola-notizia: #3a1c71;
+    --rosso-news: #d90429;
+    --border-light: rgba(255,255,255,0.15);
+}
+
+html, body {
+    width: 100%;
+    background-color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    /* CRITICO: Impedisce lo scroll laterale per le linguette infinite */
+    overflow-x: hidden; 
+}
+
+.container-full { 
+    max-width: 1240px; 
+    margin: 0 auto !important; 
+    padding: 0 15px !important; 
+}
+
+/* =========================================================
+   2. HEADER (Invariato)
+   ========================================================= */
+.header-top-bar {
+    background-color: var(--us-black) !important;
+    color: #aaa !important;
+    font-size: 10px !important;
+    padding: 8px 0 !important;
+    text-transform: uppercase;
+    width: 100%;
+    display: block !important;
+}
+
+.flex-header { display: flex !important; justify-content: space-between !important; align-items: center !important; }
+.top-partner-logos { display: flex !important; gap: 15px !important; color: #fff !important; font-weight: bold; }
+.header-main-blue { background-color: var(--us-blue-main) !important; color: #fff !important; padding: 12px 0 0 0 !important; }
+.grid-header-main { display: grid !important; grid-template-columns: auto 1fr auto auto; align-items: center !important; gap: 20px !important; padding-bottom: 12px !important; }
+.logo-txt { font-family: 'Times New Roman', serif; font-style: italic; font-weight: bold; font-size: 28px !important; letter-spacing: -1px; }
+.logo-txt span { font-style: normal; font-weight: normal; font-size: 14px !important; }
+.logo-area { border-right: 1px solid var(--border-light) !important; padding-right: 15px !important; }
+.central-nav { display: flex !important; flex-direction: column !important; gap: 5px !important; }
+.main-nav-links { display: flex !important; gap: 12px !important; }
+.main-nav-links a { color: #fff !important; text-decoration: none; font-size: 11px !important; font-weight: 700; text-transform: uppercase; }
+.trending-topics { font-size: 10px !important; border-top: 1px solid var(--border-light) !important; padding-top: 5px !important; display: flex !important; gap: 10px !important; }
+.trending-topics a { color: #fff !important; text-decoration: none; font-weight: bold; }
+.action-icons { display: flex !important; gap: 15px !important; font-size: 18px !important; padding: 0 15px !important; border-left: 1px solid var(--border-light) !important; }
+.btn-sfoglia { background-color: var(--us-blue-dark) !important; padding: 14px 22px !important; font-size: 11px !important; font-weight: bold; border: 1px solid rgba(255,255,255,0.1) !important; }
+
+/* =========================================================
+   3. HERO BLOCK (Linguetta Rossa a SINISTRA)
+   ========================================================= */
+.main-content { margin-top: 25px !important; }
+.hero-block { display: flex !important; background: #fff; min-height: 380px; overflow: visible !important; }
+
+.hero-info {
+    flex: 1 !important; 
+    background-color: var(--viola-notizia) !important;
+    padding: 30px !important; 
+    position: relative;
+    color: white !important;
+    display: flex !important; 
+    flex-direction: column !important; 
+    justify-content: flex-start !important;
+}
+
+.hero-img-box { flex: 1.8 !important; }
+.hero-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.badge-wrapper { position: relative; margin-top: -10px; margin-bottom: 25px !important; display: flex; }
+.red-badge {
+    background-color: var(--rosso-news) !important;
+    padding: 7px 18px !important; 
+    font-weight: bold; font-size: 12px !important;
+    color: white !important;
+    text-transform: uppercase;
+    position: relative; z-index: 5; 
+}
+
+/* Nastro infinito a sinistra */
+.red-badge::before {
+    content: ""; position: absolute; top: 0; bottom: 0; right: 0;
+    left: -4000px !important; background-color: var(--rosso-news) !important; z-index: -1; 
+}
+
+.hero-info h2 { font-family: 'Georgia', serif; font-size: 24px !important; line-height: 1.2 !important; margin-bottom: 15px !important; }
+.hero-info p { font-size: 13px !important; opacity: 0.9 !important; margin-bottom: 20px; }
+.hero-social { margin-top: auto; color: rgba(255,255,255,0.5); font-size: 12px; }
+
+/* =========================================================
+   4. LAYOUT 11 NOTIZIE E SIDEBAR
+   ========================================================= */
+.lower-layout { display: grid !important; grid-template-columns: 2fr 1fr !important; gap: 40px !important; margin-top: 40px !important; }
+
+.news-item { display: flex !important; gap: 20px !important; padding: 25px 0 !important; border-bottom: 1px solid #eee !important; }
+.news-item:last-child { border-bottom: none !important; }
+.news-img { flex: 0 0 220px !important; }
+.news-img img { width: 100%; height: auto; display: block; border-radius: 2px; }
+.news-text { flex: 1 !important; display: flex; flex-direction: column; justify-content: center; }
+
+.ads-sidebar { display: flex !important; flex-direction: column !important; gap: 30px !important; overflow: visible !important; }
+
+.ad-pink {
+    background-color: #ffc0cb !important;
+    min-height: 250px !important;
+    display: flex !important; align-items: center; justify-content: center;
+    color: #d11d53 !important; font-weight: bold; border: 2px solid #ffb6c1 !important;
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   5. BOX LEGGI ANCHE (Linguetta Blu con testo Bianco/Rosso)
+   ========================================================= */
+.leggi-anche-box {
+    background-color: #fff;
+    margin-top: 10px;
+    position: relative;
+    /* overflow: visible permette alla barra blu di uscire a destra dello schermo */
+    overflow: visible !important; 
+}
+
+.leggi-anche-header {
+    /* Barra spessa blu */
+    height: 45px !important;
+    background-color: var(--us-blue-main) !important; /* Barra tutta blu */
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 15px !important;
+    
+    /* Testo "LEGGI" (e impostazione base) in bianco */
+    color: #ffffff !important;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    position: relative;
+    z-index: 5;
+}
+
+/* Nastro infinito blu a DESTRA */
+.leggi-anche-header::after {
+    content: "";
+    position: absolute;
+    top: 0; 
+    bottom: 0; 
+    left: 0;
+    /* La barra blu si allunga a destra per 4000px */
+    right: -4000px !important; 
+    background-color: var(--us-blue-main) !important;
+    z-index: -1;
+}
+
+/* La parola "ANCHE" scritta in ROSSO */
+.leggi-anche-header span {
+    color: var(--rosso-news) !important; /* Applica il rosso della variabile */
+    margin-left: 6px; /* Spazio tra le due parole */
+}
+
+/* Lista dei link sotto la barra */
+.leggi-anche-list { 
+    list-style: none !important; 
+    padding-top: 10px !important; 
+}
+
+.leggi-anche-list li { 
+    padding: 12px 0; 
+    border-bottom: 1px solid #eee; 
+}
+
+.leggi-anche-list li:last-child { 
+    border-bottom: none; 
+}
+
+.leggi-anche-list li a { 
+    text-decoration: none; 
+    color: #333 !important; 
+    font-weight: 700; 
+    font-size: 15px; 
+    display: block; 
+    margin-bottom: 4px;
+}
+
+.leggi-anche-list li a:hover { 
+    color: var(--us-blue-main) !important; 
+}
+
+/* Nome autore */
+.autore-link { 
+    display: block; 
+    font-size: 11px; 
+    color: var(--us-blue-main); 
+    font-weight: 500; 
+}
+
+/* Card Promo e Footer (Raggruppati qui per ordine) */
+.promo-blue-card { 
+    background-color: var(--us-blue-main) !important; 
+    color: white !important; 
+    padding: 25px !important; 
+    text-align: center !important; 
+    margin-top: 20px;
+}
+
+.main-footer { 
+    background: #333; 
+    color: #fff; 
+    padding: 30px 0; 
+    margin-top: 50px; 
+    text-align: center; 
+}
+/* =========================================================
+   6. RESPONSIVE
+   ========================================================= */
+@media (max-width: 1024px) {
+    .grid-header-main, .lower-layout { grid-template-columns: 1fr !important; }
+    .hero-block, .news-item { flex-direction: column !important; }
+    .news-img { flex: none !important; width: 100% !important; }
+    /* Riduciamo le linguette su mobile per sicurezza */
+    .red-badge::before { left: -200px !important; }
+    .leggi-anche-header::after { right: -200px !important; }
+}
