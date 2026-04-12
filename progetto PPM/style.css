@@ -223,7 +223,595 @@ html, body {
     text-align: center; 
 }
 /* =========================================================
-   6. RESPONSIVE
+   6. SEZIONE PROGRAMMA US (ALLINEATA A SINISTRA)
+   ========================================================= */
+.programma-us-section {
+    background-color: var(--us-blue-dark) !important;
+    padding: 50px 0 !important;
+    margin-top: 50px !important;
+    color: #ffffff !important;
+}
+
+/* Header della sezione: rimosso text-align center, ora allineato a sinistra */
+.programma-us-header {
+    text-align: left !important; /* Allineamento a sinistra richiesto */
+    margin-bottom: 30px !important;
+    /* Opzionale: se vuoi che sia perfettamente allineato al testo delle notizie sopra */
+    max-width: 66%; 
+}
+
+.programma-us-header h2 {
+    font-family: 'Times New Roman', serif;
+    font-size: 32px !important;
+    font-weight: bold;
+    margin-bottom: 5px !important;
+}
+
+.programma-us-header p {
+    font-size: 14px !important;
+    opacity: 0.8;
+    font-weight: normal;
+}
+
+/* Griglia Card */
+.programma-us-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+}
+
+.us-card {
+    background-color: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.us-card-img {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+}
+
+.us-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.us-card-body {
+    padding: 15px !important;
+}
+
+.tag-red-sm {
+    color: var(--rosso-news);
+    font-weight: bold;
+    font-size: 10px !important;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px !important;
+}
+
+.us-card-body h3 {
+    font-size: 15px !important;
+    color: #ffffff !important;
+    line-height: 1.3;
+}
+
+/* Responsive: scaliamo le colonne per mobile */
+@media (max-width: 1024px) {
+    .programma-us-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 600px) {
+    .programma-us-grid { grid-template-columns: 1fr !important; }
+}
+
+/* =========================================================
+   7. SEZIONE EVENTI (Sfondo Grigio Unico)
+   ========================================================= */
+.eventi-section {
+    background-color: #ffffff !important; /* Lo sfondo della pagina resta bianco */
+    padding: 50px 0 !important;
+}
+
+/* Contenitore Grigio che racchiude tutto */
+.eventi-section .container-full {
+    background-color: #f2f2f2 !important; /* Il grigio che cercavi */
+    padding: 30px !important;            /* Spazio tra il bordo grigio e il contenuto */
+    border: 1px solid #e0e0e0 !important;
+}
+
+.eventi-header {
+    /* Il titolo ora è dentro il blocco grigio */
+    border-bottom: 2px solid #ddd !important;
+    margin-bottom: 30px !important;
+    padding-bottom: 10px !important;
+}
+
+.eventi-header h2 {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--rosso-news);
+    font-size: 28px !important;
+    margin: 0 !important;
+}
+
+.eventi-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 30px !important;
+}
+
+/* Le card ora sono "pulite" senza il loro sfondo grigio individuale */
+.evento-card {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent !important; /* Trasparenti per far vedere il grigio sotto */
+}
+
+.evento-img {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 12px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Opzionale: un filo di ombra per staccare l'immagine */
+}
+
+.evento-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.evento-body h3 {
+    font-size: 15px !important;
+    color: #222 !important;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.evento-body p {
+    font-size: 11px !important;
+    color: #444 !important;
+}
+
+.evento-footer {
+    margin-top: auto;
+    border-top: 1px solid #ccc !important;
+    padding-top: 10px !important;
+}
+
+.autore {
+    font-size: 10px !important;
+    color: var(--us-blue-main);
+    font-weight: bold;
+}
+/* =========================================================
+   8. SEZIONE 3 MINUTI CON (Sistemazione Finale)
+   ========================================================= */
+.tre-minuti-section {
+    background-color: var(--us-blue-dark) !important;
+    padding: 40px 0 0 0 !important;
+    position: relative;
+    overflow: visible !important;
+}
+
+.tre-minuti-header {
+    position: relative;
+    margin-bottom: 50px !important;
+    display: flex;
+}
+
+/* Badge azzurro infinito a sinistra */
+.tre-minuti-header h3 {
+    background-color: #88c0ff !important;
+    color: #003a70 !important;
+    font-size: 13px !important;
+    font-weight: bold;
+    padding: 8px 20px !important;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 5;
+    display: inline-block;
+}
+
+.tre-minuti-header h3::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0; right: 0;
+    left: -4000px !important;
+    background-color: #88c0ff !important;
+    z-index: -1;
+}
+
+/* Griglia Editoriali */
+.tre-minuti-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0 !important;
+}
+
+.editoriale-card {
+    position: relative; /* Necessario per bloccare la foto in basso a destra */
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 30px 20px 30px !important; 
+    border-left: 1px solid rgba(255, 255, 255, 0.2) !important;
+    min-height: 280px !important; /* Altezza fissa per uniformità */
+}
+
+.editoriale-card:first-child {
+    border-left: none !important;
+    padding-left: 0 !important;
+}
+
+/* Testo editoriale: limitato per non finire sotto la foto */
+.editoriale-text {
+    max-width: 85%; 
+    z-index: 2;
+}
+
+.editoriale-text h3 {
+    color: #ffffff !important;
+    font-size: 18px !important;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 15px !important;
+}
+
+.autore-editoriale {
+    color: #88c0ff !important;
+    font-style: italic;
+    font-family: 'Georgia', serif;
+    font-size: 14px !important;
+}
+
+/* Riquadro Autore: Bloccato in basso a destra */
+.editoriale-img {
+    position: absolute !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    width: 130px !important; /* Dimensione fissa identica per tutti */
+    height: 130px !important;
+    z-index: 1;
+}
+
+.editoriale-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Mantiene la sagoma intatta */
+    display: block;
+    vertical-align: bottom;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .tre-minuti-grid { grid-template-columns: 1fr !important; }
+    .editoriale-card { 
+        border-left: none !important; 
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding: 20px 0 140px 0 !important; /* Spazio per la foto sotto */
+    }
+}
+/* =========================================================
+   9. SEZIONE NEWS + SIDEBAR (Aggiornata con News Speciali)
+   ========================================================= */
+.news-sidebar-section {
+    background-color: #ffffff !important;
+    padding: 40px 0 !important;
+}
+
+.main-layout-grid {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr !important; /* News a sinistra, Sidebar a destra */
+    gap: 40px !important;
+}
+
+/* --- COLONNA SINISTRA: News Orizzontali --- */
+.news-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px !important;
+}
+
+.news-horizontal-card {
+    display: flex !important;
+    gap: 20px !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    padding-bottom: 25px !important;
+}
+
+.news-thumb {
+    flex: 0 0 200px;
+    height: 135px;
+    background-color: #eee;
+}
+
+.news-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-content h3 {
+    font-size: 19px !important;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 5px 0 !important;
+    color: #000;
+}
+
+/* --- COLONNA DESTRA: Sidebar Mista (Ads + Speciali) --- */
+.sidebar-ads {
+    display: flex;
+    flex-direction: column;
+    gap: 30px !important; /* Spazio maggiore tra blocchi diversi */
+}
+
+/* Box Pubblicità Rosa */
+.ad-pink-box {
+    background-color: #ffdce5 !important;
+    border: 1px solid #ffb6c1 !important;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d63384;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Card Speciali nella Sidebar (Solidarietà, Immagini, etc.) */
+.sidebar-news-card {
+    background: #fff !important;
+    border-bottom: 1px solid #ddd !important;
+    padding-bottom: 20px !important;
+}
+
+.sidebar-news-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px !important;
+}
+
+.icon-red {
+    color: var(--rosso-news);
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.tag-blue-main {
+    color: var(--us-blue-main);
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* Thumbnail con tasto Play */
+.sidebar-news-img {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px !important;
+}
+
+.sidebar-news-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sidebar-news-card h3 {
+    font-size: 18px !important;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 10px !important;
+}
+
+.autore-sm {
+    font-size: 12px !important;
+    color: var(--us-blue-main);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px !important;
+}
+
+/* Icone Social in basso a destra */
+.sidebar-social-icons {
+    font-size: 13px !important;
+    color: #999;
+    text-align: right; /* Allineate a destra come da screenshot */
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+    margin-top: 5px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .main-layout-grid { grid-template-columns: 1fr !important; }
+    .news-horizontal-card { flex-direction: column; }
+    .news-thumb { flex: none; width: 100%; height: 200px; }
+}
+
+/* =========================================================
+   10. STILE SEZIONI BANNER BLU (6 CARD)
+   ========================================================= */
+.sezione-banner-blu {
+    padding: 40px 0 !important;
+    background: #fff !important;
+}
+
+/* Banner Blu Infinito a Sinistra */
+.banner-blu-header {
+    background-color: #003a70 !important;
+    position: relative;
+    margin-bottom: 30px !important;
+    padding: 8px 25px !important;
+    display: inline-block;
+    z-index: 5;
+}
+
+.banner-blu-header::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0; right: 0;
+    left: -4000px !important; /* Estende il blu fuori dal monitor a sinistra */
+    background-color: #003a70 !important;
+    z-index: -1;
+}
+
+.banner-blu-header h3 {
+    color: #fff !important;
+    font-size: 13px !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 !important;
+}
+
+/* Griglia a 3 colonne (creerà automaticamente le righe necessarie) */
+.grid-tre-colonne {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 40px 30px !important; /* 40px di spazio tra le righe, 30px tra le colonne */
+}
+
+/* Rettangolo Giallo Ocra */
+.rettangolo-ocra {
+    width: 100%;
+    height: 180px;
+    background-color: #ccaa00 !important;
+    margin-bottom: 15px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.card-stretto h4 {
+    font-size: 17px !important;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 10px 0 !important;
+}
+
+.card-stretto .social-icons-sm {
+    text-align: right;
+    font-size: 11px;
+    color: #bbb;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 8px;
+    margin-top: 15px;
+}
+/* =========================================================
+   11. SEZIONE EDICOLA (Taglio a V corretto)
+   ========================================================= */
+.edicola-premium-section {
+    background-color: #f6f6f6 !important;
+    padding: 30px 0 50px 0 !important;
+    overflow: hidden;
+}
+
+/* L'ETICHETTA CON TAGLIO A V VERSO L'INTERNO */
+.blue-tag-v {
+    background-color: #003a70 !important;
+    color: white !important;
+    padding: 6px 35px 6px 20px !important; /* Spazio a destra per la V */
+    font-size: 11px;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    /* Crea la rientranza a V */
+    clip-path: polygon(0% 0%, 100% 0%, 92% 50%, 100% 100%, 0% 100%);
+}
+
+.blue-tag-v::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0; right: 99%;
+    left: -5000px;
+    background-color: #003a70;
+}
+
+/* LAYOUT GRIGLIE */
+.premium-main-grid {
+    display: grid !important;
+    grid-template-columns: 1.8fr 1fr 1fr !important;
+    gap: 40px !important;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 25px;
+}
+
+.premium-bottom-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 40px !important;
+}
+
+/* BOX VERDI */
+.img-verde {
+    width: 100% !important;
+    height: 130px !important;
+    background-color: #2d6a31 !important;
+    margin-bottom: 10px;
+    display: flex; align-items: center; justify-content: center; color: #fff; font-size: 11px;
+}
+
+.img-verde-mini {
+    width: 85px !important; height: 60px !important;
+    background-color: #2d6a31 !important;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; color: #fff; font-size: 9px;
+}
+
+/* TIPOGRAFIA E META */
+.meta-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.cat-blue { color: #003a70; font-weight: 800; font-size: 10px; }
+
+.topnews-label {
+    color: #cc0000;
+    font-weight: 900;
+    font-size: 9px;
+    text-transform: uppercase;
+}
+
+.title-xl { font-size: 30px !important; font-weight: 300 !important; line-height: 1.1; margin-bottom: 10px !important; }
+
+.title-side { font-size: 16px !important; font-weight: 700; line-height: 1.2; margin-bottom: 5px !important; }
+
+.bottom-item-flex { display: flex !important; gap: 15px; justify-content: space-between; }
+
+.bottom-text h4 { font-size: 14px !important; font-weight: 700; line-height: 1.3; margin-bottom: 4px !important; }
+
+.author-side { font-size: 11px; font-weight: bold; color: #003a70; }
+/* =========================================================
+   . RESPONSIVE
    ========================================================= */
 @media (max-width: 1024px) {
     .grid-header-main, .lower-layout { grid-template-columns: 1fr !important; }
